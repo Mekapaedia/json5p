@@ -1,0 +1,29 @@
+?start: value
+
+?value: object
+        | array
+        | string
+        | number
+        | "true"             -> true
+        | "false"            -> false
+        | "null"             -> null
+
+?number: SIGNED_NUMBER | HEX_NUMBER
+
+array: "[" [value ("," value)*] ","? "]"
+object: "{" [pair ("," pair)*] ","? "}"
+pair: string ":" value
+
+string: STRING | CNAME
+
+STRING: /("(?!"").*?(?<!\\)(\\\\)*?"|'(?!'').*?(?<!\\)(\\\\)*?')/is
+HEX_NUMBER: "0" ("x"|"X") HEXDIGIT+
+
+%import common.CPP_COMMENT
+%import common.SIGNED_NUMBER
+%import common.HEXDIGIT
+%import common.CNAME
+%import common.WS
+
+%ignore WS
+%ignore CPP_COMMENT
