@@ -1,0 +1,10 @@
+ha: &he 1,
+cheese: &fries {
+    a: "chicken",
+    b: "pancake"
+},
+chips: *fries {
+    a: "dedo"
+},
+de: *he,
+fe: *he 2

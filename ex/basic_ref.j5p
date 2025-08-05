@@ -1,0 +1,4 @@
+cheese: &fries {
+    a: "chicken"
+},
+chips: *fries

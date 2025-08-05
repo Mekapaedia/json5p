@@ -1,0 +1,5 @@
+!cheese: {
+    a: 2,
+    b: !
+},
+chicken: *cheese
